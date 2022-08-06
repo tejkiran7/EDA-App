@@ -1,5 +1,3 @@
-# Priyang Bhatt 
-
 # Imports
 import streamlit as st
 import pandas as pd
@@ -9,12 +7,10 @@ import seaborn as sns
 st.title("Data Analysis")
 st.subheader("Data Analysis Using Python & Streamlit")
 
-
 # 2. Upload Dataset
 upload = st.file_uploader("Upload Your Dataset (In CSV Format)")
 if upload is not None:
     data=pd.read_csv(upload)
-
 
 # 3. Show Dataset
 if upload is not None:
@@ -23,16 +19,12 @@ if upload is not None:
             st.write(data.head())
         if st.button("Tail"):
             st.write(data.tail())
-        
-        
+       
 # 4. Check DataType of Each Column
 if upload is not None:
     if st.checkbox("DataType of Each Column"):
         st.text("DataTypes")
         st.write(data.dtypes)
-        
-
-
 
 # 5. Find Shape of Our Dataset (Number of Rows And Number of Columns)
 if upload is not None:
@@ -55,7 +47,6 @@ if upload is not None:
     else:
         st.success("Congratulations!!!,No Missing Values")
         
-
 # 7. Find Duplicate Values in the dataset
 if upload is not None:
     test=data.duplicated().any()
@@ -78,14 +69,12 @@ if upload is not None:
     if st.checkbox("Summary of The Dataset"):
         st.write(data.describe(include='all'))
 
-
 # 9. About Section
 
 if st.button("About App"):
     st.text("Built With Streamlit")
     st.text("Streamlit is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. "
             "In just a few minutes you can build and deploy powerful data apps.")
-
 
 # 10. By
 if st.checkbox("By"):
